@@ -1,0 +1,272 @@
+/**
+ * @Author: chris
+ * @Date:   2017-06-13T17:15:11+10:00
+ * @Email:  chris@southbanksoftware.com
+ * @Last modified by:   chris
+ * @Last modified time: 2017-08-28T17:42:55+10:00
+ */
+
+/*******************
+    GENERAL
+********************/
+.container-fluid {
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 1200px;
+}
+
+/*******************
+    NAVIGATION
+********************/
+.main-nav .logo {
+  content: url("./images/logo-ops.png");
+  padding: 0px;
+  max-width: 120px;
+  height: 120px;
+  margin: 5px 15px;
+  -webkit-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+}
+
+.main-nav .container-fluid .navbar-brand.logo {
+  margin-left: 1%;
+}
+
+.main-nav {
+  height: 130px;
+  -webkit-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+}
+
+.main-nav.shrink {
+  height: 65px;
+  background-color: #FFF;
+}
+
+.main-nav.shrink .logo {
+  width: 60px;
+  height: 60px;
+}
+
+.main-nav .navbar-toggle {
+  margin-top: 48px;
+  margin-bottom: 48px;
+  background: rgba(13,90,207,0.75);
+  border-color: #FFF;
+}
+
+.main-nav .navbar-toggle .icon-bar {
+  background-color: #FFF;
+}
+
+.main-nav.shrink .navbar-toggle {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.main-header .navbar-default {
+  background-color: #FFFFFF;
+  border-color: none;
+}
+
+.main-nav .nav-item-block {
+  float: right;
+  width: 78%;
+  height: 130px;
+}
+
+.main-nav.shrink .nav-pills {
+  height: 65px;
+}
+
+.main-nav .nav-pills li a {
+  border-radius: 0;
+  color: #0001D3;
+  height: 60px;
+  padding-top: 20px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  -webkit-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+}
+
+.main-nav.shrink .nav-pills li a {
+  height: 65px;
+  padding-top: 20px;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.main-nav .nav-pills li a:hover,
+.main-nav .nav-pills li.active a {
+  background-color: rgba(13,90,207,0.75);
+  color: #FFFFFF;
+}
+
+.nav {
+  background-color: #FFFFFF;
+}
+
+/*******************
+    MAIN CONTENT
+*******************/
+.main-content {
+  padding-top: 130px;
+}
+
+.main-banner-content {
+  padding: 20px;
+}
+
+.header-banner {
+  position: relative;
+  height: 300px;
+  background-image: url('./images/cropped-Header.jpg');
+  background-size: cover;
+}
+
+.header-banner .main-banner-content {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+}
+
+.header-banner #wave {
+  background: rgba(13,90,207,0.75);
+  width: 100%;
+  height: 50%;
+  position: absolute;
+  bottom: 0;
+}
+
+.header-banner .wave::after {
+
+}
+
+.header-banner .main-banner-content h2,
+.header-banner .main-banner-content p {
+  color: #FEFEFF;
+}
+
+.main-banner a {
+  color: #FFFFFF;
+  text-decoration: underline;
+}
+
+/*********************
+        BUTTONS
+**********************/
+a.button {
+  margin: 10px;
+  padding: 11px 20px 13px 20px;
+  border-radius: 3px;
+  background-color: #FFFFFF;
+  color: #0001D3;
+  text-decoration: none;
+}
+
+a.button.dark {
+  background-color: rgba(13,90,207,0.75);
+  color: #FFFFFF;
+}
+
+a.button.inverse {
+  background-color: #FFFFFF;
+  color: #333333;/*rgba(13,90,207,0.75);*/
+  border: 1px solid #333333;/*rgba(13,90,207,0.75);*/
+}
+
+/*********************
+    ANNOUNCEMENTS
+**********************/
+.post {
+  background-color: rgba(13,90,207,0.75);
+  margin: 15px;
+  max-width: 300px;
+}
+
+.post-text {
+  padding: 30px;
+  color: #FEFEFF;
+}
+
+.post p {
+  margin-bottom: 25px;
+}
+
+.post img {
+  position: relative;
+  left: -15px;
+  max-width: 300px;
+  margin: 0;
+  padding: 0;
+}
+
+h2.post-title {
+  margin-top: 3px;
+}
+
+.grid-posts-footer {
+  margin: 20px;
+}
+
+.main-content::after {
+  padding: 40px;
+}
+
+/*******************
+    FOOTER
+********************/
+.main-footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: rgba(13,90,207,0.75);
+  height: 80px;
+  color: #FFFFFF;
+}
+
+.main-footer a {
+  color: #FFFFFF;
+}
+
+.back-to-top {
+  text-decoration: none;
+  position: absolute;
+  visibility: visible;
+  bottom: 60px;
+  right: 60px;
+  width: 60px;
+  height: 60px;
+  padding: 7px 9px;
+  position: fixed;
+  opacity: 0.9;
+  z-index: 1000;
+  background-color: #636363;
+  color: #FFFFFF;
+  border-radius: 5px;
+  animation:  fadeInFromNone 1.5s ease;
+}
+
+.back-to-top.hidden {
+  visibility: hidden;
+  opacity: 0;
+  animation:  fadeInFromNone 1.5s ease;
+}
+
+@keyframes fadeInFromNone {
+  0% {
+    display: none;
+    opacity: 0;
+  }
+
+  0.01% {
+    display: block;
+    opacity: 0;
+  }
+
+  100% {
+    display: block;
+    opacity: 0.9;
+  }
+}
