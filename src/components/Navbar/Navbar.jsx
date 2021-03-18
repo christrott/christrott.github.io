@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, Route, BrowserRouter as Router, Switch } from 'react-router-dom';
+import { Link, Route, HashRouter as Router, Switch } from 'react-router-dom';
 import { FaGithub, FaItchIo, FaLinkedin, FaStackExchange, FaTwitter, FaUnity } from 'react-icons/fa';
 import About from '../Content/About';
 import Projects from '../Content/Projects';
