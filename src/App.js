@@ -1,11 +1,11 @@
 import React from 'react';
+import Navbar from './components/Navbar/Navbar.jsx'; 
 import './App.sass';
-import SiteHead from './components/Header/SiteHead.jsx'; 
 
 function App() {
   return (
     <div className="App">
-      <SiteHead />
+      <Navbar />
     </div>
   );
 }
