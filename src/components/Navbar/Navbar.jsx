@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, Route, HashRouter as Router, Switch } from 'react-router-dom';
+import { Link, Route, HashRouter as Router, Routes } from 'react-router-dom';
 import { FaGithub, FaItchIo, FaLinkedin, FaStackExchange, FaTwitter, FaUnity } from 'react-icons/fa';
 import About from '../Content/About';
 import Projects from '../Content/Projects';
@@ -24,14 +24,10 @@ export default class Navbar extends React.Component {
                     </div>
                 </div>
                 <div className="container">
-                    <Switch>
-                        <Route path="/about">
-                            <About />
-                        </Route>
-                        <Route path="/projects">
-                            <Projects />
-                        </Route>
-                    </Switch>
+                    <Routes>
+                        <Route path="/about" element={<About />} />
+                        <Route path="/projects" element={<Projects />} />
+                    </Routes>
                 </div>
             </Router>
         );
