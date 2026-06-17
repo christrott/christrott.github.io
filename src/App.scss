@@ -3,6 +3,12 @@
 // Import a Google Font
 @import url('https://fonts.googleapis.com/css?family=Roboto:400,700');
 
+:root {
+    --bulma-content-heading-color: #3E6666;
+    --bulma-link-text: #fa7c91;
+    --bulma-font-family: 'Roboto', sans-serif;
+}
+
 // Set your brand colors
 $blue: #6666AA;
 $purple: #8a4d76;
@@ -15,7 +21,7 @@ $beige-lighter: #eff0eb;
 $family-sans-serif: 'Roboto', sans-serif;
 $grey-dark: $brown;
 $grey-light: $beige-light;
-$primary: $purple;
+$primary: $pink;
 $link: $blue;
 $widescreen-enabled: false;
 $fullhd-enabled: false;
