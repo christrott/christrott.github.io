@@ -57,6 +57,8 @@ export default class About extends React.Component {
 
         return (
             <div className="section" id="projects">
+            <div className="title is-3">Projects</div>
+            <p className="mb-6">Just a few of the things I've worked on over the years. Not an exhaustive list by any means.</p>
             {projectData.map((project) => {
                 return <div class="card">
                     <div class="card-image"></div>
