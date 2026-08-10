@@ -6,7 +6,7 @@ export default class About extends React.Component {
                 <article className="media">
                     <figure className="media-left is-128x128">
                         <p className="image">
-                            <img src="https://res.cloudinary.com/lmdp3yf15/image/upload/c_scale,w_250/v1614855834/ChrisGrey_2_v07p6c.png" alt="Chris Trott Profile" />
+                            <img src="https://res.cloudinary.com/lmdp3yf15/image/upload/w_200,c_fill,ar_1:1,g_auto,r_max,bo_3px_solid_grey,b_rgb:14161a/v1785371994/PXL_20241112_110440793_exported_780_1731409521293_yiz7tf.jpg" alt="Chris Trott Profile" />
                         </p>
                     </figure>
                     <div className="media-content">
