@@ -4,7 +4,7 @@ import './App.scss';
 
 function App() {
   return (
-    <div className="App" data-theme="dark">
+    <div className="App">
       <Navbar />
     </div>
   );
