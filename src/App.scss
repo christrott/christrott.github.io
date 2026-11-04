@@ -116,6 +116,57 @@ section[id] {
     }
 }
 
+.hero-location {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    opacity: 0.8;
+}
+
+// Experience
+.experience-card {
+    border-left: 3px solid $accent;
+}
+
+.experience-header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 0.25rem 1rem;
+}
+
+.experience-dates,
+.experience-earlier,
+.game-meta {
+    opacity: 0.7;
+    font-size: 0.95rem;
+}
+
+.experience-earlier {
+    margin-top: 0.25rem;
+}
+
+.experience-summary {
+    font-style: italic;
+}
+
+// Side projects
+.game-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    .card-content {
+        flex-grow: 1;
+    }
+}
+
+.game-result {
+    color: $accent;
+    font-size: 0.95rem;
+}
+
 // Comfortable reading width for longer text
 .about-text {
     max-width: 70ch;

@@ -2,14 +2,16 @@ import React, { useEffect } from 'react';
 import Navbar from './components/Navbar/Navbar.jsx';
 import Hero from './components/Content/Hero.jsx';
 import About from './components/Content/About.jsx';
-import Projects from './components/Content/Projects.jsx';
+import Experience from './components/Content/Experience.jsx';
+import SideProjects from './components/Content/SideProjects.jsx';
 import './App.scss';
 
 // Old links used the router's hash URLs (e.g. /#/projects). Send those to the matching section.
 const redirectLegacyHash = () => {
   const { hash, pathname } = window.location;
   if (!hash.startsWith('#/')) return;
-  const id = hash.slice(2);
+  const legacy = { projects: 'experience' };
+  const id = legacy[hash.slice(2)] || hash.slice(2);
   window.history.replaceState(null, '', id ? `#${id}` : pathname);
   const section = id && document.getElementById(id);
   if (section) section.scrollIntoView();
@@ -25,7 +27,8 @@ function App() {
         <Hero />
         <div className="container">
           <About />
-          <Projects />
+          <Experience />
+          <SideProjects />
         </div>
       </main>
       <footer className="footer">

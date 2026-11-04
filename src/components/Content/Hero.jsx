@@ -1,9 +1,10 @@
 import React from 'react';
-import { FaLinkedin, FaFileAlt } from 'react-icons/fa';
+import { FaLinkedin, FaFileAlt, FaMapMarkerAlt } from 'react-icons/fa';
 
 // Edit these to change the header content
 const name = 'Chris Trott';
 const title = 'Software Engineer · Frontend & Full Stack';
+const location = 'Remote, Australia';
 const summary = 'I build product-focused web apps with React, Node.js and PHP, from design systems and frontend architecture to leading teams through modernisation.';
 const linkedinUrl = 'https://www.linkedin.com/in/christopher-trott-39345119';
 const cvUrl = null; // e.g. '/Chris-Trott-CV.pdf' (put the file in /public). The CV button only shows when this is set.
@@ -19,7 +20,11 @@ const Hero = () => (
                     </div>
                     <div className="column">
                         <h1 className="title is-1">{name}</h1>
-                        <p className="subtitle is-4 hero-role">{title}</p>
+                        <p className="subtitle is-4 hero-role mb-2">{title}</p>
+                        <p className="hero-location mb-4">
+                            <span className="icon"><FaMapMarkerAlt /></span>
+                            <span>{location}</span>
+                        </p>
                         <p className="hero-summary">{summary}</p>
                         <div className="buttons mt-5">
                             <a className="button is-accent" href={linkedinUrl}>
@@ -32,7 +37,7 @@ const Hero = () => (
                                     <span>Download CV</span>
                                 </a>
                             )}
-                            <a className="button is-text" href="#projects">See my work ↓</a>
+                            <a className="button is-text" href="#experience">See my work ↓</a>
                         </div>
                     </div>
                 </div>

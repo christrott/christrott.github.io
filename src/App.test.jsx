@@ -1,21 +1,35 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render, screen, within } from '@testing-library/react';
 import App from './App';
+import { experience } from './data/experience.js';
 
-test('shows the header with name and LinkedIn button', () => {
+test('shows the header with name, location and LinkedIn button', () => {
   render(<App />);
   expect(screen.getByRole('heading', { level: 1, name: /chris trott/i })).toBeInTheDocument();
+  expect(screen.getByText('Remote, Australia')).toBeInTheDocument();
   expect(screen.getByRole('link', { name: /connect on linkedin/i })).toBeInTheDocument();
 });
 
-test('renders About and Projects on one page', () => {
+test('renders every section on one page', () => {
   render(<App />);
-  expect(screen.getByRole('heading', { name: /about me/i })).toBeInTheDocument();
-  expect(screen.getByText('Projects', { selector: '#projects .title' })).toBeInTheDocument();
+  for (const name of ['About Me', 'Experience', 'Side Projects']) {
+    expect(screen.getByRole('heading', { level: 2, name })).toBeInTheDocument();
+  }
+});
+
+test('shows a card with role and dates for each job', () => {
+  render(<App />);
+  const section = document.getElementById('experience');
+  for (const job of experience) {
+    expect(within(section).getByText(job.dates)).toBeInTheDocument();
+  }
+  expect(within(section).getAllByRole('article')).toHaveLength(experience.length);
 });
 
 test('nav links point at the page sections', () => {
   render(<App />);
-  expect(screen.getByRole('link', { name: 'About Me' })).toHaveAttribute('href', '#about');
-  expect(screen.getByRole('link', { name: 'Projects' })).toHaveAttribute('href', '#projects');
+  const nav = screen.getByRole('navigation');
+  expect(within(nav).getByRole('link', { name: 'About Me' })).toHaveAttribute('href', '#about');
+  expect(within(nav).getByRole('link', { name: 'Experience' })).toHaveAttribute('href', '#experience');
+  expect(within(nav).getByRole('link', { name: 'Side Projects' })).toHaveAttribute('href', '#side-projects');
 });

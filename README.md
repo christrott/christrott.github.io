@@ -24,10 +24,14 @@ src/
     Content/
       Hero.jsx          Header: name, title, summary, LinkedIn / CV buttons (edit the constants at the top)
       About.jsx         About Me section
-      Projects.jsx      Work history and side projects (data lives in this file)
+      Experience.jsx    Work history cards
+      SideProjects.jsx  Game jam cards
+  data/
+    experience.js       Jobs, dates, highlights and tech tags (edit here)
+    sideProjects.js     Game jam entries (add an `image` to show a screenshot)
 ```
 
-To add or edit a project, update the `projectData` array in `src/components/Content/Projects.jsx`.
+To update jobs or games, edit the files in `src/data/`. The components read from them.
 
 ## Running locally
 
@@ -61,9 +65,10 @@ Done:
 - [x] Mobile photo layout, link-preview tags, manifest name and favicon
 - [x] Footer and labelled social icon links
 - [x] Header section and single scrolling page
+- [x] Experience cards with role, dates and tech tags; separate side-projects section
 
 Next:
 
-- [ ] Experience cards with role, dates and tech tags; separate side-projects section with screenshots
+- [ ] Screenshots for the side-project cards
 - [ ] Navbar style pass and some style zest
 - [ ] Accessibility pass (focus states, contrast, burger as a real button)

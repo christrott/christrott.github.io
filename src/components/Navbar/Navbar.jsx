@@ -4,7 +4,8 @@ import './Navbar.scss';
 
 const sections = [
     { id: 'about', label: 'About Me' },
-    { id: 'projects', label: 'Projects' },
+    { id: 'experience', label: 'Experience' },
+    { id: 'side-projects', label: 'Side Projects' },
 ];
 
 const socialLinks = [
