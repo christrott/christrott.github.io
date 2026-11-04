@@ -31,3 +31,19 @@ $body-background-color: $beige-lighter;
 $control-border-width: 2px;
 $input-border-color: transparent;
 $input-shadow: none;
+
+// Stack the profile photo above the text on small screens
+@media screen and (max-width: 768px) {
+    #about .media {
+        flex-direction: column;
+        align-items: center;
+    }
+    #about .media-left {
+        margin: 0 0 1.5rem 0;
+    }
+}
+
+.footer {
+    padding: 2rem 1.5rem;
+    margin-top: 3rem;
+}

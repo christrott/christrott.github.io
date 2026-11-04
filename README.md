@@ -58,13 +58,13 @@ Done:
 - [x] Projects listing with details and links
 - [x] Dark theme
 - [x] Migrate off Create React App to Vite
+- [x] Mobile photo layout, link-preview tags, manifest name and favicon
+- [x] Footer and labelled social icon links
 
 Next:
 
 - [ ] Header with name, title, one-line summary and LinkedIn / CV buttons
 - [ ] Single scrolling page (About, Experience, Side projects, Contact)
 - [ ] Experience cards with role, dates and tech tags; separate side-projects section with screenshots
-- [ ] Stack the profile photo above the text on mobile
-- [ ] Real meta description, Open Graph preview image and manifest name
 - [ ] Navbar style pass and some style zest
-- [ ] Accessibility pass (labels on icon links, focus states, contrast)
+- [ ] Accessibility pass (focus states, contrast, burger as a real button)
