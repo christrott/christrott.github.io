@@ -4,18 +4,22 @@ Source for my personal site at **[www.christrott.com.au](https://www.christrott.
 
 ## Stack
 
-- **React 19**, bootstrapped with Create React App (`react-scripts` 5)
+- **React 19**, built with **Vite** (migrated from Create React App)
 - **Bulma 1.0** + **Sass** for layout and theming (dark theme set on the `<html>` element)
 - **React Router** (`HashRouter`), so routes work on GitHub Pages without server rewrites
 - **react-icons** for the social links
+- **Vitest** + **React Testing Library** for tests
 - Hosted on **GitHub Pages**, deployed from the `gh-pages` branch, custom domain via `public/CNAME`
 
 ## Project structure
 
 ```
-public/                 HTML template, favicon, manifest, CNAME
+index.html              Page template (Vite entry point)
+vite.config.js          Build, dev server and test config
+public/                 Static files copied as-is: favicon, manifest, CNAME
 src/
-  App.js / App.scss     App shell and global theme variables
+  index.jsx             Mounts the app
+  App.jsx / App.scss    App shell and global theme variables
   components/
     Navbar/             Navigation, mobile menu and routes
     Content/
@@ -27,12 +31,14 @@ To add or edit a project, update the `projectData` array in `src/components/Cont
 
 ## Running locally
 
-Requires Node 18+ and Yarn.
+Requires Node 20.19+ (or 22.12+) and Yarn.
 
 ```bash
 yarn install
 yarn start    # dev server on http://localhost:3000
-yarn test     # tests in watch mode
+yarn test     # tests in watch mode (Vitest)
+yarn build    # production build to /build
+yarn preview  # serve the production build locally
 ```
 
 ## Deploying
@@ -51,6 +57,7 @@ Done:
 - [x] Mobile burger / nav menu
 - [x] Projects listing with details and links
 - [x] Dark theme
+- [x] Migrate off Create React App to Vite
 
 Next:
 
@@ -61,4 +68,3 @@ Next:
 - [ ] Real meta description, Open Graph preview image and manifest name
 - [ ] Navbar style pass and some style zest
 - [ ] Accessibility pass (labels on icon links, focus states, contrast)
-- [ ] Migrate off Create React App (deprecated) to Vite
