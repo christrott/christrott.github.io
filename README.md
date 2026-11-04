@@ -67,8 +67,9 @@ Done:
 - [x] Header section and single scrolling page
 - [x] Experience cards with role, dates and tech tags; separate side-projects section
 - [x] Screenshots on the side-project cards
+- [x] Navbar style pass: monogram brand, current-section highlight, blurred sticky bar, accessible burger button
 
 Next:
 
-- [ ] Navbar style pass and some style zest
-- [ ] Accessibility pass (focus states, contrast, burger as a real button)
+- [ ] Some style zest
+- [ ] Accessibility pass (focus states and contrast across the rest of the page)

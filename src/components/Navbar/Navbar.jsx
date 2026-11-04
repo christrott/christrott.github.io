@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { FaGithub, FaItchIo, FaLinkedin, FaStackExchange, FaTwitter, FaUnity } from 'react-icons/fa';
 import './Navbar.scss';
 
@@ -17,38 +17,94 @@ const socialLinks = [
     { label: 'Unity Answers', href: 'https://answers.unity.com/users/152903/viokyma.html', icon: <FaUnity />, hidden: true },
 ];
 
+// Highlights the nav link for whichever section is in the middle of the screen
+const useActiveSection = (ids) => {
+    const [active, setActive] = useState(null);
+    useEffect(() => {
+        if (typeof IntersectionObserver === 'undefined') return undefined;
+        const observer = new IntersectionObserver(
+            (entries) => entries.forEach((entry) => {
+                if (entry.isIntersecting) setActive(entry.target.id);
+            }),
+            { rootMargin: '-45% 0px -50% 0px' },
+        );
+        ids.forEach((id) => {
+            const el = document.getElementById(id);
+            if (el) observer.observe(el);
+        });
+        const hero = document.getElementById('top');
+        if (hero) observer.observe(hero);
+        return () => observer.disconnect();
+    }, [ids]);
+    return active;
+};
+
+// True once the page has scrolled away from the top (adds a shadow under the nav)
+const useScrolled = () => {
+    const [scrolled, setScrolled] = useState(false);
+    useEffect(() => {
+        const onScroll = () => setScrolled(window.scrollY > 8);
+        onScroll();
+        window.addEventListener('scroll', onScroll, { passive: true });
+        return () => window.removeEventListener('scroll', onScroll);
+    }, []);
+    return scrolled;
+};
+
+const sectionIds = sections.map((s) => s.id);
+
 const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const activeSection = useActiveSection(sectionIds);
+    const scrolled = useScrolled();
     const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
     const closeMenu = () => setIsMenuOpen(false);
 
     return (
-        <nav className="navbar" role="navigation" aria-label="main navigation">
+        <nav className={`navbar site-nav${scrolled ? ' is-scrolled' : ''}`} aria-label="main navigation">
             <div className="container">
                 <div className="navbar-brand">
-                    <a className="navbar-item brand-name" href="#top" onClick={closeMenu}>Chris Trott</a>
-                    <a role="button" className={isMenuOpen ? "navbar-burger is-active" : "navbar-burger"} aria-label="menu" aria-expanded={isMenuOpen} onClick={toggleMenu}>
-                        <span aria-hidden="true"></span>
-                        <span aria-hidden="true"></span>
-                        <span aria-hidden="true"></span>
-                        <span aria-hidden="true"></span>
+                    <a className="navbar-item brand" href="#top" onClick={closeMenu}>
+                        <span className="brand-mark" aria-hidden="true">CT</span>
+                        <span className="brand-name">Chris Trott</span>
                     </a>
+                    <button
+                        type="button"
+                        className={isMenuOpen ? 'navbar-burger is-active' : 'navbar-burger'}
+                        aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
+                        aria-expanded={isMenuOpen}
+                        aria-controls="site-menu"
+                        onClick={toggleMenu}
+                    >
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                    </button>
                 </div>
-                <div className={isMenuOpen ? "navbar-menu is-active" : "navbar-menu"}>
+                <div id="site-menu" className={isMenuOpen ? 'navbar-menu is-active' : 'navbar-menu'}>
                     <div className="navbar-start">
                         {sections.map(({ id, label }) => (
-                            <a key={id} className="navbar-item" href={`#${id}`} onClick={closeMenu}>{label}</a>
+                            <a
+                                key={id}
+                                className={`navbar-item section-link${activeSection === id ? ' is-current' : ''}`}
+                                href={`#${id}`}
+                                aria-current={activeSection === id ? 'location' : undefined}
+                                onClick={closeMenu}
+                            >
+                                {label}
+                            </a>
                         ))}
                     </div>
-                    <div className="navbar-end">
+                    <div className="navbar-end social-links">
                         {socialLinks.map(({ label, href, icon, hidden }) => (
-                            <a key={label} className={hidden ? "navbar-item is-hidden" : "navbar-item"} href={href} title={label} aria-label={label}>{icon}</a>
+                            <a key={label} className={hidden ? 'navbar-item social-link is-hidden' : 'navbar-item social-link'} href={href} title={label} aria-label={label}>{icon}</a>
                         ))}
                     </div>
                 </div>
             </div>
         </nav>
     );
-}
+};
 
 export default Navbar;
