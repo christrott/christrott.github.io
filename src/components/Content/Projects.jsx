@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default class About extends React.Component {
+export default class Projects extends React.Component {
     render() {
         const projectData = [
             {
@@ -60,21 +60,21 @@ export default class About extends React.Component {
             <div className="title is-3">Projects</div>
             <p className="mb-6">Just a few of the things I've worked on over the years. Not an exhaustive list by any means.</p>
             {projectData.map((project) => {
-                return <div class="card">
-                    <div class="card-image"></div>
-                    <div class="card-content">
-                        <div class="media-content">
-                            <p class="title is-4">{project.name}</p>
-                            <p class="subtitle is-6">{project.category}</p>
+                return <div className="card mb-5" key={project.name}>
+                    <div className="card-image"></div>
+                    <div className="card-content">
+                        <div className="media-content">
+                            <p className="title is-4">{project.name}</p>
+                            <p className="subtitle is-6">{project.category}</p>
                         </div>
                         <br />
-                        <div class="content">
+                        <div className="content">
                             <p>{project.description}</p>
                             {project.work.length > 0 ?
                                 <>
-                                    <p class="title is-6">My Role</p>
+                                    <p className="title is-6">My Role</p>
                                     <ul>
-                                    {project.work.map((workItem) => <li>{workItem}</li>)}
+                                    {project.work.map((workItem) => <li key={workItem}>{workItem}</li>)}
                                     </ul>
                                 </>
                             : ''}
