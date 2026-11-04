@@ -70,7 +70,4 @@ Done:
 - [x] Screenshots on the side-project cards
 - [x] Navbar style pass: monogram brand, current-section highlight, blurred sticky bar, accessible burger button
 - [x] Style pass: pixel display type (Jersey 15), 8-bit heading underlines, pixel buttons and icon
-
-Next:
-
-- [ ] Accessibility pass (focus states and contrast across the rest of the page)
+- [x] Accessibility pass: skip link, consistent focus rings, AA contrast throughout, unique link names, Escape closes the mobile menu, focus never hidden under the sticky nav

@@ -22,22 +22,22 @@ const Hero = () => (
                         <h1 className="title is-1 hero-name">{name}<span className="caret" aria-hidden="true"></span></h1>
                         <p className="subtitle is-4 hero-role mb-2">{title}</p>
                         <p className="hero-location mb-4">
-                            <span className="icon"><FaMapMarkerAlt /></span>
+                            <span className="icon" aria-hidden="true"><FaMapMarkerAlt /></span>
                             <span>{location}</span>
                         </p>
                         <p className="hero-summary">{summary}</p>
                         <div className="buttons mt-5">
                             <a className="button is-accent" href={linkedinUrl}>
-                                <span className="icon"><FaLinkedin /></span>
+                                <span className="icon" aria-hidden="true"><FaLinkedin /></span>
                                 <span>Connect on LinkedIn</span>
                             </a>
                             {cvUrl && (
                                 <a className="button is-accent-outlined" href={cvUrl}>
-                                    <span className="icon"><FaFileAlt /></span>
+                                    <span className="icon" aria-hidden="true"><FaFileAlt /></span>
                                     <span>Download CV</span>
                                 </a>
                             )}
-                            <a className="button is-text" href="#experience">See my work ↓</a>
+                            <a className="button is-text" href="#experience">See my work <span aria-hidden="true">↓</span></a>
                         </div>
                     </div>
                 </div>

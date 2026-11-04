@@ -39,3 +39,16 @@ test('side project cards show title and gameplay screenshots', () => {
   expect(screen.getByAltText('Froccer title screen')).toHaveAttribute('src', '/images/froccer-0.png');
   expect(screen.getByAltText('Froccer gameplay')).toHaveAttribute('src', '/images/froccer-1.png');
 });
+
+test('has a skip link to the main content', () => {
+  render(<App />);
+  expect(screen.getByRole('link', { name: 'Skip to content' })).toHaveAttribute('href', '#main');
+  expect(screen.getByRole('main')).toHaveAttribute('id', 'main');
+});
+
+test('each itch.io link names its game', () => {
+  render(<App />);
+  for (const name of ['Without Darkness', 'Extinction Event', 'Froccer']) {
+    expect(screen.getByRole('link', { name: `View ${name} on itch.io` })).toBeInTheDocument();
+  }
+});

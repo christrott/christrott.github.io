@@ -2,9 +2,9 @@ import React from 'react';
 import { experience, earlierExperience } from '../../data/experience.js';
 
 const TechTags = ({ tech }) => (
-    <div className="tags mt-4">
-        {tech.map((t) => <span key={t} className="tag">{t}</span>)}
-    </div>
+    <ul className="tags mt-4" aria-label="Technologies used">
+        {tech.map((t) => <li key={t} className="tag">{t}</li>)}
+    </ul>
 );
 
 const Company = ({ company, link }) => (

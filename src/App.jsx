@@ -22,8 +22,9 @@ function App() {
 
   return (
     <div className="App">
+      <a className="skip-link" href="#main">Skip to content</a>
       <Navbar />
-      <main>
+      <main id="main" tabIndex={-1}>
         <Hero />
         <div className="container">
           <About />

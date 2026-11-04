@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { FaGithub, FaItchIo, FaLinkedin, FaStackExchange, FaTwitter, FaUnity } from 'react-icons/fa';
 import './Navbar.scss';
 
@@ -9,12 +9,12 @@ const sections = [
 ];
 
 const socialLinks = [
-    { label: 'LinkedIn', href: 'https://www.linkedin.com/in/christopher-trott-39345119', icon: <FaLinkedin /> },
-    { label: 'GitHub', href: 'https://github.com/ChrisTrott', icon: <FaGithub /> },
-    { label: 'Itch.io', href: 'https://viokyma.itch.io/', icon: <FaItchIo /> },
-    { label: 'StackExchange', href: 'https://stackexchange.com/users/2116967/chris-trott?tab=accounts', icon: <FaStackExchange /> },
-    { label: 'Twitter', href: 'https://twitter.com/viokyma', icon: <FaTwitter /> },
-    { label: 'Unity Answers', href: 'https://answers.unity.com/users/152903/viokyma.html', icon: <FaUnity />, hidden: true },
+    { label: 'LinkedIn', href: 'https://www.linkedin.com/in/christopher-trott-39345119', icon: <FaLinkedin aria-hidden="true" /> },
+    { label: 'GitHub', href: 'https://github.com/ChrisTrott', icon: <FaGithub aria-hidden="true" /> },
+    { label: 'Itch.io', href: 'https://viokyma.itch.io/', icon: <FaItchIo aria-hidden="true" /> },
+    { label: 'StackExchange', href: 'https://stackexchange.com/users/2116967/chris-trott?tab=accounts', icon: <FaStackExchange aria-hidden="true" /> },
+    { label: 'Twitter', href: 'https://twitter.com/viokyma', icon: <FaTwitter aria-hidden="true" /> },
+    { label: 'Unity Answers', href: 'https://answers.unity.com/users/152903/viokyma.html', icon: <FaUnity aria-hidden="true" />, hidden: true },
 ];
 
 // Highlights the nav link for whichever section is in the middle of the screen
@@ -57,11 +57,25 @@ const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const activeSection = useActiveSection(sectionIds);
     const scrolled = useScrolled();
+    const burgerRef = useRef(null);
     const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
     const closeMenu = () => setIsMenuOpen(false);
 
+    // Escape closes the mobile menu and puts focus back on the menu button
+    useEffect(() => {
+        if (!isMenuOpen) return undefined;
+        const onKeyDown = (e) => {
+            if (e.key === 'Escape') {
+                setIsMenuOpen(false);
+                if (burgerRef.current) burgerRef.current.focus();
+            }
+        };
+        document.addEventListener('keydown', onKeyDown);
+        return () => document.removeEventListener('keydown', onKeyDown);
+    }, [isMenuOpen]);
+
     return (
-        <nav className={`navbar site-nav${scrolled ? ' is-scrolled' : ''}`} aria-label="main navigation">
+        <nav className={`navbar site-nav${scrolled ? ' is-scrolled' : ''}`} aria-label="Main">
             <div className="container">
                 <div className="navbar-brand">
                     <a className="navbar-item brand" href="#top" onClick={closeMenu}>
@@ -70,6 +84,7 @@ const Navbar = () => {
                     </a>
                     <button
                         type="button"
+                        ref={burgerRef}
                         className={isMenuOpen ? 'navbar-burger is-active' : 'navbar-burger'}
                         aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
                         aria-expanded={isMenuOpen}

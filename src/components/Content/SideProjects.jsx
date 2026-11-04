@@ -38,8 +38,8 @@ const SideProjects = () => (
                         </div>
                         <footer className="card-footer">
                             <a className="card-footer-item" href={game.link}>
-                                <span className="icon"><FaItchIo /></span>
-                                <span>View on itch.io</span>
+                                <span className="icon" aria-hidden="true"><FaItchIo /></span>
+                                <span>View<span className="is-sr-only"> {game.name}</span> on itch.io</span>
                             </a>
                         </footer>
                     </article>
