@@ -1,20 +1,15 @@
+// Keep the nav visible while scrolling the single page
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 30;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
 .navbar .navbar-burger {
     color: var(--bulma-link-text);
 }
 
-.navbar-item .active {
-    text-decoration: underline;
-}
-
-.navbar-item {
-    &.has-dropdown {
-        .navbar-dropdown {
-            display: none;
-        }
-        &.is-active {
-            .navbar-dropdown {
-                display: block;
-            }
-        }
-    }
+.navbar .brand-name {
+    font-weight: 700;
 }

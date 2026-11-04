@@ -1,9 +1,20 @@
 import React, { useState } from 'react';
-import { Navigate, NavLink, Route, HashRouter as Router, Routes } from 'react-router-dom';
 import { FaGithub, FaItchIo, FaLinkedin, FaStackExchange, FaTwitter, FaUnity } from 'react-icons/fa';
-import About from '../Content/About';
-import Projects from '../Content/Projects';
 import './Navbar.scss';
+
+const sections = [
+    { id: 'about', label: 'About Me' },
+    { id: 'projects', label: 'Projects' },
+];
+
+const socialLinks = [
+    { label: 'LinkedIn', href: 'https://www.linkedin.com/in/christopher-trott-39345119', icon: <FaLinkedin /> },
+    { label: 'GitHub', href: 'https://github.com/ChrisTrott', icon: <FaGithub /> },
+    { label: 'Itch.io', href: 'https://viokyma.itch.io/', icon: <FaItchIo /> },
+    { label: 'StackExchange', href: 'https://stackexchange.com/users/2116967/chris-trott?tab=accounts', icon: <FaStackExchange /> },
+    { label: 'Twitter', href: 'https://twitter.com/viokyma', icon: <FaTwitter /> },
+    { label: 'Unity Answers', href: 'https://answers.unity.com/users/152903/viokyma.html', icon: <FaUnity />, hidden: true },
+];
 
 const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -11,10 +22,11 @@ const Navbar = () => {
     const closeMenu = () => setIsMenuOpen(false);
 
     return (
-        <Router>
-            <nav className="navbar" role="navigation" aria-label="main navigation">
+        <nav className="navbar" role="navigation" aria-label="main navigation">
+            <div className="container">
                 <div className="navbar-brand">
-                    <a role="button" className={isMenuOpen ? "navbar-burger is-active" : "navbar-burger"} aria-label="menu" aria-expanded={isMenuOpen} data-target="navbar" onClick={toggleMenu}>
+                    <a className="navbar-item brand-name" href="#top" onClick={closeMenu}>Chris Trott</a>
+                    <a role="button" className={isMenuOpen ? "navbar-burger is-active" : "navbar-burger"} aria-label="menu" aria-expanded={isMenuOpen} onClick={toggleMenu}>
                         <span aria-hidden="true"></span>
                         <span aria-hidden="true"></span>
                         <span aria-hidden="true"></span>
@@ -22,26 +34,19 @@ const Navbar = () => {
                     </a>
                 </div>
                 <div className={isMenuOpen ? "navbar-menu is-active" : "navbar-menu"}>
-                    <div className="navbar-item"><NavLink className={({ isActive }) => isActive ? "active" : ""} to="/about" onClick={closeMenu}>About Me</NavLink></div>
-                    <div className="navbar-item"><NavLink className={({ isActive }) => isActive ? "active" : ""} to="/projects" onClick={closeMenu}>Projects</NavLink></div>
+                    <div className="navbar-start">
+                        {sections.map(({ id, label }) => (
+                            <a key={id} className="navbar-item" href={`#${id}`} onClick={closeMenu}>{label}</a>
+                        ))}
+                    </div>
                     <div className="navbar-end">
-                        <div className="navbar-item" title="Twitter"><a href="https://twitter.com/viokyma" aria-label="Twitter"><FaTwitter /></a></div>
-                        <div className="navbar-item" title="LinkedIn"><a href="https://www.linkedin.com/in/christopher-trott-39345119" aria-label="LinkedIn"><FaLinkedin /></a></div>
-                        <div className="navbar-item" title="GitHub"><a href="https://github.com/ChrisTrott" aria-label="GitHub"><FaGithub /></a></div>
-                        <div className="navbar-item" title="StackExchange"><a href="https://stackexchange.com/users/2116967/chris-trott?tab=accounts" aria-label="StackExchange"><FaStackExchange /></a></div>
-                        <div className="navbar-item" title="Itch.io"><a href="https://viokyma.itch.io/" aria-label="Itch.io"><FaItchIo /></a></div>
-                        <div className="navbar-item is-hidden" title="Unity Answers"><a href="https://answers.unity.com/users/152903/viokyma.html" aria-label="Unity Answers"><FaUnity /></a></div>
+                        {socialLinks.map(({ label, href, icon, hidden }) => (
+                            <a key={label} className={hidden ? "navbar-item is-hidden" : "navbar-item"} href={href} title={label} aria-label={label}>{icon}</a>
+                        ))}
                     </div>
                 </div>
-            </nav>
-            <div className="container">
-                <Routes>
-                    <Route index element={<Navigate to="/about" />} />
-                    <Route path="/about" element={<About />} />
-                    <Route path="/projects" element={<Projects />} />
-                </Routes>
             </div>
-        </Router>
+        </nav>
     );
 }
 

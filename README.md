@@ -6,7 +6,6 @@ Source for my personal site at **[www.christrott.com.au](https://www.christrott.
 
 - **React 19**, built with **Vite** (migrated from Create React App)
 - **Bulma 1.0** + **Sass** for layout and theming (dark theme set on the `<html>` element)
-- **React Router** (`HashRouter`), so routes work on GitHub Pages without server rewrites
 - **react-icons** for the social links
 - **Vitest** + **React Testing Library** for tests
 - Hosted on **GitHub Pages**, deployed from the `gh-pages` branch, custom domain via `public/CNAME`
@@ -21,8 +20,9 @@ src/
   index.jsx             Mounts the app
   App.jsx / App.scss    App shell and global theme variables
   components/
-    Navbar/             Navigation, mobile menu and routes
+    Navbar/             Sticky navigation and mobile menu
     Content/
+      Hero.jsx          Header: name, title, summary, LinkedIn / CV buttons (edit the constants at the top)
       About.jsx         About Me section
       Projects.jsx      Work history and side projects (data lives in this file)
 ```
@@ -60,11 +60,10 @@ Done:
 - [x] Migrate off Create React App to Vite
 - [x] Mobile photo layout, link-preview tags, manifest name and favicon
 - [x] Footer and labelled social icon links
+- [x] Header section and single scrolling page
 
 Next:
 
-- [ ] Header with name, title, one-line summary and LinkedIn / CV buttons
-- [ ] Single scrolling page (About, Experience, Side projects, Contact)
 - [ ] Experience cards with role, dates and tech tags; separate side-projects section with screenshots
 - [ ] Navbar style pass and some style zest
 - [ ] Accessibility pass (focus states, contrast, burger as a real button)
