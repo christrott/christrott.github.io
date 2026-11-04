@@ -28,7 +28,7 @@ src/
       SideProjects.jsx  Game jam cards
   data/
     experience.js       Jobs, dates, highlights and tech tags (edit here)
-    sideProjects.js     Game jam entries (add an `image` to show a screenshot)
+    sideProjects.js     Game jam entries and their screenshots (in public/images)
 ```
 
 To update jobs or games, edit the files in `src/data/`. The components read from them.
@@ -66,9 +66,9 @@ Done:
 - [x] Footer and labelled social icon links
 - [x] Header section and single scrolling page
 - [x] Experience cards with role, dates and tech tags; separate side-projects section
+- [x] Screenshots on the side-project cards
 
 Next:
 
-- [ ] Screenshots for the side-project cards
 - [ ] Navbar style pass and some style zest
 - [ ] Accessibility pass (focus states, contrast, burger as a real button)

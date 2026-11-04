@@ -10,10 +10,17 @@ const SideProjects = () => (
             {sideProjects.map((game) => (
                 <div className="column is-half-tablet is-one-third-desktop" key={game.name}>
                     <article className="card game-card">
-                        {game.image && (
+                        {game.images && game.images.length > 0 && (
                             <div className="card-image">
-                                <figure className="image is-16by9">
-                                    <img src={game.image} alt={`Screenshot of ${game.name}`} />
+                                <figure className="image is-5by4 game-shots">
+                                    {game.images.map((src, i) => (
+                                        <img
+                                            key={src}
+                                            src={src}
+                                            alt={i === 0 ? `${game.name} title screen` : `${game.name} gameplay`}
+                                            loading="lazy"
+                                        />
+                                    ))}
                                 </figure>
                             </div>
                         )}

@@ -152,6 +152,34 @@ section[id] {
 }
 
 // Side projects
+// Pixel-art screenshots: keep pixels crisp when scaled up, and fade from
+// the title screen to the gameplay shot on hover / keyboard focus
+.game-shots {
+    overflow: hidden;
+    background-color: $page-bg;
+
+    img {
+        object-fit: cover;
+        image-rendering: pixelated;
+        transition: opacity 0.3s ease;
+    }
+
+    img + img {
+        opacity: 0;
+    }
+}
+
+.game-card:hover .game-shots img + img,
+.game-card:focus-within .game-shots img + img {
+    opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .game-shots img {
+        transition: none;
+    }
+}
+
 .game-card {
     display: flex;
     flex-direction: column;

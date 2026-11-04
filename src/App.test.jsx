@@ -33,3 +33,9 @@ test('nav links point at the page sections', () => {
   expect(within(nav).getByRole('link', { name: 'Experience' })).toHaveAttribute('href', '#experience');
   expect(within(nav).getByRole('link', { name: 'Side Projects' })).toHaveAttribute('href', '#side-projects');
 });
+
+test('side project cards show title and gameplay screenshots', () => {
+  render(<App />);
+  expect(screen.getByAltText('Froccer title screen')).toHaveAttribute('src', '/images/froccer-0.png');
+  expect(screen.getByAltText('Froccer gameplay')).toHaveAttribute('src', '/images/froccer-1.png');
+});
