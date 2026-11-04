@@ -19,7 +19,7 @@ const Hero = () => (
                         <img src={photoUrl} alt="Chris Trott" width="180" height="180" />
                     </div>
                     <div className="column">
-                        <h1 className="title is-1">{name}</h1>
+                        <h1 className="title is-1 hero-name">{name}<span className="caret" aria-hidden="true"></span></h1>
                         <p className="subtitle is-4 hero-role mb-2">{title}</p>
                         <p className="hero-location mb-4">
                             <span className="icon"><FaMapMarkerAlt /></span>

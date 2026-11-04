@@ -13,7 +13,7 @@ const Company = ({ company, link }) => (
 
 const Experience = () => (
     <section className="section" id="experience">
-        <h2 className="title is-3">Experience</h2>
+        <h2 className="title is-3 section-heading">Experience</h2>
 
         {experience.map((job) => (
             <article className="card experience-card mb-5" key={job.company}>

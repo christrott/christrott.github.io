@@ -6,6 +6,7 @@ Source for my personal site at **[www.christrott.com.au](https://www.christrott.
 
 - **React 19**, built with **Vite** (migrated from Create React App)
 - **Bulma 1.0** + **Sass** for layout and theming (dark theme set on the `<html>` element)
+- **Google Fonts**: Jersey 15 for pixel display type, Roboto for body text
 - **react-icons** for the social links
 - **Vitest** + **React Testing Library** for tests
 - Hosted on **GitHub Pages**, deployed from the `gh-pages` branch, custom domain via `public/CNAME`
@@ -68,8 +69,8 @@ Done:
 - [x] Experience cards with role, dates and tech tags; separate side-projects section
 - [x] Screenshots on the side-project cards
 - [x] Navbar style pass: monogram brand, current-section highlight, blurred sticky bar, accessible burger button
+- [x] Style pass: pixel display type (Jersey 15), 8-bit heading underlines, pixel buttons and icon
 
 Next:
 
-- [ ] Some style zest
 - [ ] Accessibility pass (focus states and contrast across the rest of the page)

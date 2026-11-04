@@ -1,39 +1,15 @@
 @charset "utf-8";
 @use "bulma/sass";
-// Import a Google Font
-@import url('https://fonts.googleapis.com/css?family=Roboto:400,700');
+// Fonts are loaded in index.html (Jersey 15 for pixel display type, Roboto for body text)
+$accent: #fa7c91;   // pink
+$plum: #8a4d76;     // pixel shadows and secondary accents
+$page-bg: #14161a;
+$pixel-font: 'Jersey 15', ui-monospace, monospace;
 
 :root {
-    --bulma-content-heading-color: #3E6666;
-    --bulma-link-text: #fa7c91;
-    --bulma-font-family: 'Roboto', sans-serif;
+    --bulma-family-primary: 'Roboto', 'Segoe UI', Helvetica, Arial, sans-serif;
+    --bulma-link-text: #{$accent};
 }
-
-// Set your brand colors
-$blue: #6666AA;
-$purple: #8a4d76;
-$pink: #fa7c91;
-$brown: #757763;
-$beige-light: #d0d1cd;
-$beige-lighter: #eff0eb;
-
-// Update Bulma's global variables
-$family-sans-serif: 'Roboto', sans-serif;
-$grey-dark: $brown;
-$grey-light: $beige-light;
-$primary: $pink;
-$link: $blue;
-$widescreen-enabled: false;
-$fullhd-enabled: false;
-
-// Update some of Bulma's component variables
-$body-background-color: $beige-lighter;
-$control-border-width: 2px;
-$input-border-color: transparent;
-$input-shadow: none;
-
-$accent: #fa7c91;
-$page-bg: #14161a;
 
 html {
     scroll-behavior: smooth;
@@ -54,6 +30,54 @@ section[id] {
 .hero-photo img {
     display: block;
     border-radius: 50%;
+}
+
+// Pixel display type: name and section headings
+.title.hero-name {
+    font-family: $pixel-font;
+    font-weight: 400;
+    font-size: clamp(3.25rem, 8vw, 5.25rem);
+    line-height: 0.95;
+    letter-spacing: 0.02em;
+}
+
+// Block cursor after the name: blinks a few times on load, then holds
+.caret {
+    display: inline-block;
+    width: 0.36em;
+    height: 0.62em;
+    margin-left: 0.14em;
+    background-color: $accent;
+    animation: caret-blink 0.9s steps(1) 4;
+}
+
+@keyframes caret-blink {
+    50% {
+        opacity: 0;
+    }
+}
+
+.title.section-heading {
+    font-family: $pixel-font;
+    font-weight: 400;
+    font-size: 2.6rem;
+    line-height: 1;
+    letter-spacing: 0.02em;
+    color: var(--bulma-text-strong);
+    margin-bottom: 2rem;
+
+    // 8-bit underline: a bar trailing off into two pixel blocks
+    &::after {
+        content: '';
+        display: block;
+        width: 84px;
+        height: 6px;
+        margin-top: 0.75rem;
+        background: linear-gradient(90deg,
+            $accent 0 60px, transparent 60px 66px,
+            $accent 66px 72px, transparent 72px 78px,
+            $plum 78px 84px);
+    }
 }
 
 .hero-role {
@@ -83,7 +107,30 @@ section[id] {
     }
 }
 
+// Pixel buttons: square corners and a hard plum shadow that "presses" on click
+%pixel-button {
+    border-radius: 0;
+    box-shadow: 4px 4px 0 $plum;
+    transition: transform 0.1s steps(2), box-shadow 0.1s steps(2);
+
+    &:hover {
+        transform: translate(-1px, -1px);
+        box-shadow: 5px 5px 0 $plum;
+    }
+
+    &:active {
+        transform: translate(4px, 4px);
+        box-shadow: 0 0 0 $plum;
+    }
+
+    &:focus-visible {
+        outline: 2px solid #fff;
+        outline-offset: 3px;
+    }
+}
+
 .button.is-accent {
+    @extend %pixel-button;
     background-color: $accent;
     border-color: transparent;
     color: $page-bg;
@@ -91,12 +138,12 @@ section[id] {
 
     &:hover,
     &:focus-visible {
-        filter: brightness(1.08);
         color: $page-bg;
     }
 }
 
 .button.is-accent-outlined {
+    @extend %pixel-button;
     background-color: transparent;
     border-color: $accent;
     color: $accent;
@@ -126,6 +173,10 @@ section[id] {
 // Experience
 .experience-card {
     border-left: 3px solid $accent;
+
+    .tag {
+        border-radius: 2px;
+    }
 }
 
 .experience-header {
@@ -206,4 +257,10 @@ section[id] {
 .footer {
     padding: 2rem 1.5rem;
     margin-top: 3rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .caret {
+        animation: none;
+    }
 }

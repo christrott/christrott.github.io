@@ -9,7 +9,7 @@ const markPixelArt = (e) => {
 
 const SideProjects = () => (
     <section className="section" id="side-projects">
-        <h2 className="title is-3">Side Projects</h2>
+        <h2 className="title is-3 section-heading">Side Projects</h2>
         <p className="mb-5">Games I've built solo for game jams, to try out new ideas and tools under a deadline.</p>
         <div className="columns is-multiline">
             {sideProjects.map((game) => (

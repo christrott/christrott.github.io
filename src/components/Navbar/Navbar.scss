@@ -4,6 +4,7 @@ $accent: #fa7c91;
 $nav-bg: rgba(20, 22, 26, 0.82);
 $text: #c9ccd3;
 $text-strong: #f2f3f5;
+$pixel-font: 'Jersey 15', ui-monospace, monospace;
 
 .navbar.site-nav {
     position: sticky;
@@ -55,13 +56,13 @@ $text-strong: #f2f3f5;
         justify-content: center;
         width: 2rem;
         height: 2rem;
-        border-radius: 0.45rem;
         background-color: #14161a;
         border: 1px solid rgba(250, 124, 145, 0.35);
         color: $accent;
-        font-size: 0.8rem;
-        font-weight: 800;
-        letter-spacing: 0.02em;
+        font-family: $pixel-font;
+        font-size: 1.15rem;
+        font-weight: 400;
+        border-radius: 2px;
     }
 
     // Section links: an accent bar slides in under the current / hovered link
@@ -75,12 +76,11 @@ $text-strong: #f2f3f5;
             left: 0.75rem;
             right: 0.75rem;
             bottom: 0.4rem;
-            height: 2px;
-            border-radius: 2px;
+            height: 3px;
             background-color: $accent;
             transform: scaleX(0);
             transform-origin: left;
-            transition: transform 0.2s ease;
+            transition: transform 0.2s steps(4);
         }
 
         &:hover::after {

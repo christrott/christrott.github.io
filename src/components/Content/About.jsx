@@ -3,7 +3,7 @@ import React from 'react';
 const About = () => (
     <section className="section" id="about">
         <div className="content about-text">
-            <h2 className="title is-3">About Me</h2>
+            <h2 className="title is-3 section-heading">About Me</h2>
             <p>
                 I'm a software engineer with experience as a Front End and Full Stack Developer, specifically working with Web Apps.
                 I am most comfortable working with JavaScript and Node.js, with most of my recent experience working with React and PHP.
