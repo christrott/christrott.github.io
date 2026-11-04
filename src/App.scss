@@ -152,16 +152,19 @@ section[id] {
 }
 
 // Side projects
-// Pixel-art screenshots: keep pixels crisp when scaled up, and fade from
+// Game screenshots fit a 16:9 frame (small pixel art stays crisp) and fade from
 // the title screen to the gameplay shot on hover / keyboard focus
 .game-shots {
     overflow: hidden;
     background-color: $page-bg;
 
     img {
-        object-fit: cover;
-        image-rendering: pixelated;
+        object-fit: contain;
         transition: opacity 0.3s ease;
+    }
+
+    img.is-pixel-art {
+        image-rendering: pixelated;
     }
 
     img + img {

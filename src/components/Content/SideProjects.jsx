@@ -2,6 +2,11 @@ import React from 'react';
 import { FaItchIo } from 'react-icons/fa';
 import { sideProjects } from '../../data/sideProjects.js';
 
+// Small pixel-art captures are scaled up with hard pixel edges; large captures scale normally
+const markPixelArt = (e) => {
+    if (e.currentTarget.naturalWidth < 640) e.currentTarget.classList.add('is-pixel-art');
+};
+
 const SideProjects = () => (
     <section className="section" id="side-projects">
         <h2 className="title is-3">Side Projects</h2>
@@ -12,13 +17,14 @@ const SideProjects = () => (
                     <article className="card game-card">
                         {game.images && game.images.length > 0 && (
                             <div className="card-image">
-                                <figure className="image is-5by4 game-shots">
+                                <figure className="image is-16by9 game-shots">
                                     {game.images.map((src, i) => (
                                         <img
                                             key={src}
                                             src={src}
                                             alt={i === 0 ? `${game.name} title screen` : `${game.name} gameplay`}
                                             loading="lazy"
+                                            onLoad={markPixelArt}
                                         />
                                     ))}
                                 </figure>
