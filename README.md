@@ -1,10 +1,10 @@
 # christrott.com.au
 
-Source for my personal site at **[www.christrott.com.au](https://www.christrott.com.au)**, an overview of my work as a frontend / full-stack engineer, plus the game-jam projects I build in my spare time.
+Source for my personal site at **[www.christrott.com.au](https://www.christrott.com.au)**, an overview of my work as a frontend / full-stack engineer, plus the game projects I work on in my spare time.
 
 ## Stack
 
-- **React 19**, built with **Vite** (migrated from Create React App)
+- **React 19**, built with **Vite**
 - **Bulma 1.0** + **Sass** for layout and theming (dark theme set on the `<html>` element)
 - **Google Fonts**: Jersey 15 for pixel display type, Roboto for body text
 - **react-icons** for the social links
@@ -53,21 +53,3 @@ yarn deploy   # builds to /build and publishes it to the gh-pages branch
 ```
 
 `predeploy` runs the production build automatically, and the `gh-pages` package pushes the result. Changes go live once GitHub Pages picks up the new commit.
-
-## Roadmap
-
-Done:
-
-- [x] Update About Me text and profile image
-- [x] Mobile burger / nav menu
-- [x] Projects listing with details and links
-- [x] Dark theme
-- [x] Migrate off Create React App to Vite
-- [x] Mobile photo layout, link-preview tags, manifest name and favicon
-- [x] Footer and labelled social icon links
-- [x] Header section and single scrolling page
-- [x] Experience cards with role, dates and tech tags; separate side-projects section
-- [x] Screenshots on the side-project cards
-- [x] Navbar style pass: monogram brand, current-section highlight, blurred sticky bar, accessible burger button
-- [x] Style pass: pixel display type (Jersey 15), 8-bit heading underlines, pixel buttons and icon
-- [x] Accessibility pass: skip link, consistent focus rings, AA contrast throughout, unique link names, Escape closes the mobile menu, focus never hidden under the sticky nav
